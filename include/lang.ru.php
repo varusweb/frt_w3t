@@ -1,0 +1,19 @@
+<?
+$MESS["PT_PERSONAL_ACCOUNT"] = "Личный кабинет";
+$MESS["PT_YOUR_WALLET"] = "Ваш кошелек TON";
+$MESS["PT_CURRENT_CYCLE"] = "Текущий тираж, №";
+$MESS["PT_TICKETS_BOUGHT"] = "Куплено билетов";
+$MESS["PT_YOUR_TOTAL_WIN_TON"] = "Ваш общий выигрыш, TON";
+$MESS["PT_YOUR_TOTAL_WIN_NFT"] = "Ваш общий выигрыш, NFT";
+$MESS["PT_YOUR_TICKETS_CYCLE"] = "Ваши билеты на текущий тираж №";
+$MESS["PT_LAUNCH_IN"] = "Розыгрыш через:";
+$MESS["PT_CDWN_DAYS"] = "дней";
+$MESS["PT_CDWN_HOURS"] = "часов";
+$MESS["PT_CDWN_MINUTES"] = "минут";
+$MESS["PT_CDWN_SECONDS"] = "секунд";
+$MESS["PT_BUY_TICKET"] = "Купить билет";
+$MESS["MODAL_BUY_HEADER"] = "Получить шанс";
+$MESS["MODAL_BUY_TICKET_PRICE"] = "Цена билета:";
+$MESS["MODAL_BUY_TICKET_QUANTITY"] = "Количество билетов";
+$MESS["MODAL_BUY_AMOUNT"] = "Сумма:";
+$MESS["MODAL_BUY_BUY_LABEL"] = "Купить";

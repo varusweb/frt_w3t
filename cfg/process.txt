@@ -1,0 +1,13 @@
+first run [26.01.2023 14:30:53]
+sale start!
+first run [26.01.2023 14:31:07]
+sale start!
+stage 1: transaction found!
+stage 1.5: amount: 25; received_ton: 25; purchaseAmount: 25; received_from: EQBOdMRzd4IQySF_-FTIDTz7_xWwEk4EN-r4hhRH7EQkpkH0; buyerWallet: EQBOdMRzd4IQySF_-FTIDTz7_xWwEk4EN-r4hhRH7EQkpkH0
+stage 2: transaction absolute correct!
+stage 3: lock file done!
+stage 6: ticket sold successfully (num: 1)!
+stage 6: ticket sold successfully (num: 2)!
+stage 6: ticket sold successfully (num: 3)!
+stage 6: ticket sold successfully (num: 4)!
+stage 6: ticket sold successfully (num: 5)!

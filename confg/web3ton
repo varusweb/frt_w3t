@@ -1,0 +1,140 @@
+<VirtualHost 127.0.0.1:80>
+	ServerName web3ton.pro
+	DocumentRoot /var/www/www-root/data/www/web3ton.pro
+	ServerAdmin webmaster@web3ton.pro
+	AddDefaultCharset off
+	AssignUserID www-root www-root
+	CustomLog /var/www/httpd-logs/web3ton.pro.access.log combined
+	ErrorLog /var/www/httpd-logs/web3ton.pro.error.log
+	<FilesMatch "\.ph(p[3-5]?|tml)$">
+		SetHandler application/x-httpd-php
+	</FilesMatch>
+	<IfModule php5_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php7_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	ServerAlias www.web3ton.pro
+	DirectoryIndex index.php index.html
+	<FilesMatch "\.phps$">
+		SetHandler application/x-httpd-php-source
+	</FilesMatch>
+</VirtualHost>
+<VirtualHost 94.228.121.7:443>
+	ServerName web3ton.pro
+	DocumentRoot /var/www/www-root/data/www/web3ton.pro
+	ServerAdmin webmaster@web3ton.pro
+
+	# PROXY ON LOCALHOST FOR TONCONNECT
+	<Proxy *>
+		Order deny,allow
+		Allow from all
+	</Proxy>
+	<Location /authRequest>
+		ProxyPass http://127.0.0.1:8443/authRequest
+		ProxyPassReverse http://127.0.0.1:8443/authRequest
+	</Location>
+	<Location /tonconnect>
+		ProxyPass http://127.0.0.1:8443/tonconnect
+		ProxyPassReverse http://127.0.0.1:8443/tonconnect
+	</Location>
+
+	AddDefaultCharset off
+	SSLEngine on
+	SSLCertificateFile "/var/www/httpd-cert/www-root/web3ton.pro_le1.crt"
+	SSLCertificateKeyFile "/var/www/httpd-cert/www-root/web3ton.pro_le1.key"
+	SSLHonorCipherOrder on
+	SSLProtocol +TLSv1 +TLSv1.1 +TLSv1.2
+	SSLCipherSuite EECDH:+AES256:-3DES:RSA+AES:!NULL:!RC4
+	AssignUserID www-root www-root
+	CustomLog /var/www/httpd-logs/web3ton.pro.access.log combined
+	ErrorLog /var/www/httpd-logs/web3ton.pro.error.log
+	<FilesMatch "\.ph(p[3-5]?|tml)$">
+		SetHandler application/x-httpd-php
+	</FilesMatch>
+	ScriptAlias /php-bin/ /var/www/php-bin-isp-php71/www-root/web3ton.pro/
+	SSLCertificateChainFile "/var/www/httpd-cert/www-root/web3ton.pro_le1.ca"
+	<IfModule php5_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php7_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	ServerAlias www.web3ton.pro
+	DirectoryIndex index.php index.html
+	<FilesMatch "\.phps$">
+		SetHandler application/x-httpd-php-source
+	</FilesMatch>
+</VirtualHost>
+<Directory /var/www/www-root/data/www/web3ton.pro>
+	Options +Includes -ExecCGI
+	<IfModule php5_module>
+		php_admin_flag engine on
+	</IfModule>
+	<IfModule php7_module>
+		php_admin_flag engine on
+	</IfModule>
+	<IfModule php_module>
+		php_admin_flag engine on
+	</IfModule>
+</Directory>
+<VirtualHost 94.228.121.7:80>
+	ServerName web3ton.pro
+	DocumentRoot /var/www/www-root/data/www/web3ton.pro
+	ServerAdmin webmaster@web3ton.pro
+	AddDefaultCharset off
+	AssignUserID www-root www-root
+	CustomLog /var/www/httpd-logs/web3ton.pro.access.log combined
+	ErrorLog /var/www/httpd-logs/web3ton.pro.error.log
+	<FilesMatch "\.ph(p[3-5]?|tml)$">
+		SetHandler application/x-httpd-php
+	</FilesMatch>
+	<IfModule php5_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php7_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	ServerAlias www.web3ton.pro
+	DirectoryIndex index.php index.html
+	<FilesMatch "\.phps$">
+		SetHandler application/x-httpd-php-source
+	</FilesMatch>
+</VirtualHost>

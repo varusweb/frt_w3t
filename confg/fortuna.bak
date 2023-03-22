@@ -1,0 +1,89 @@
+<VirtualHost 94.228.121.7:80>
+	ServerName fortuna.web3ton.pro
+	ServerAlias www.fortuna.web3ton.pro
+	DocumentRoot /var/www/www-root/data/www/fortuna.web3ton.pro
+	ServerAdmin webmaster@fortuna.web3ton.pro
+	DirectoryIndex index.php index.html
+	AddDefaultCharset off
+	AssignUserID www-root www-root
+	CustomLog /var/www/httpd-logs/fortuna.web3ton.pro.access.log combined
+	ErrorLog /var/www/httpd-logs/fortuna.web3ton.pro.error.log
+	<FilesMatch "\.ph(p[3-5]?|tml)$">
+		SetHandler application/x-httpd-php
+	</FilesMatch>
+	<FilesMatch "\.phps$">
+		SetHandler application/x-httpd-php-source
+	</FilesMatch>
+	<IfModule php5_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@fortuna.web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php7_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@fortuna.web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@fortuna.web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+</VirtualHost>
+<VirtualHost 94.228.121.7:443>
+	ServerName fortuna.web3ton.pro
+	ServerAlias www.fortuna.web3ton.pro
+	DocumentRoot /var/www/www-root/data/www/fortuna.web3ton.pro
+	ServerAdmin webmaster@fortuna.web3ton.pro
+	DirectoryIndex index.php index.html
+	AddDefaultCharset off
+	SSLEngine on
+	SSLCertificateFile "/var/www/httpd-cert/www-root/fortuna.web3ton.pro_le1.crt"
+	SSLCertificateKeyFile "/var/www/httpd-cert/www-root/fortuna.web3ton.pro_le1.key"
+	SSLHonorCipherOrder on
+	SSLProtocol +TLSv1 +TLSv1.1 +TLSv1.2
+	SSLCipherSuite EECDH:+AES256:-3DES:RSA+AES:!NULL:!RC4
+	AssignUserID www-root www-root
+	CustomLog /var/www/httpd-logs/fortuna.web3ton.pro.access.log combined
+	ErrorLog /var/www/httpd-logs/fortuna.web3ton.pro.error.log
+	<FilesMatch "\.ph(p[3-5]?|tml)$">
+		SetHandler application/x-httpd-php
+	</FilesMatch>
+	<FilesMatch "\.phps$">
+		SetHandler application/x-httpd-php-source
+	</FilesMatch>
+	<IfModule php5_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@fortuna.web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php7_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@fortuna.web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	<IfModule php_module>
+		php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f webmaster@fortuna.web3ton.pro"
+		php_admin_value upload_tmp_dir "/var/www/www-root/data/mod-tmp"
+		php_admin_value session.save_path "/var/www/www-root/data/mod-tmp"
+		php_admin_value open_basedir "/var/www/www-root/data:."
+	</IfModule>
+	SSLCertificateChainFile "/var/www/httpd-cert/www-root/fortuna.web3ton.pro_le1.ca"
+</VirtualHost>
+<Directory /var/www/www-root/data/www/fortuna.web3ton.pro>
+	Options +Includes -ExecCGI
+	<IfModule php5_module>
+		php_admin_flag engine on
+	</IfModule>
+	<IfModule php7_module>
+		php_admin_flag engine on
+	</IfModule>
+	<IfModule php_module>
+		php_admin_flag engine on
+	</IfModule>
+</Directory>
